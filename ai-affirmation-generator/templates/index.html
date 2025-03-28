@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Affirmation Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Affirmation Generator</h1>
+        <form action="/generate" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="goal">Your Goal:</label>
+            <input type="text" id="goal" name="goal" required>
+
+            <label for="emotion">Your Emotion:</label>
+            <input type="text" id="emotion" name="emotion" required>
+
+            <button type="submit">Generate Affirmation</button>
+        </form>
+    </div>
+</body>
+</html>
