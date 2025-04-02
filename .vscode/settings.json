@@ -1,6 +1,29 @@
 {
     "cSpell.words": [
+        "aiohappyeyeballs",
+        "aiohttp",
+        "aiosignal",
+        "anyio",
+        "certifi",
+        "colorama",
+        "distro",
         "eiraffirmation",
-        "Slidedown"
+        "frozenlist",
+        "httpcore",
+        "httpx",
+        "idna",
+        "itsdangerous",
+        "jiter",
+        "mdurl",
+        "multidict",
+        "propcache",
+        "pydantic",
+        "Pygments",
+        "Slidedown",
+        "sniffio",
+        "tqdm",
+        "urllib",
+        "Werkzeug",
+        "yarl"
     ]
 }

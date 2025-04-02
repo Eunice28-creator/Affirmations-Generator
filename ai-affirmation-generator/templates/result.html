@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Affirmations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>A.I. Affirmation Result</title>
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>
+      window.OneSignalDeferred = window.OneSignalDeferred || [];
+      OneSignalDeferred.push(async function(OneSignal) {
+        await OneSignal.init({
+          appId: "38dc8b2d-2239-4452-9436-0aee65ef9eb0",
+          safari_web_id: "web.onesignal.auto.6514249a-4cb8-451b-a889-88f5913c9a7f",
+          notifyButton: {
+            enable: true,
+          },
+          subdomainName: "eiraffirmation",
+        });
+      });
+    </script>
+    <style>
+        /* Add your styles here */
+        .notification-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Your Affirmation</h1>
-        <p>{{ affirmation }}</p>
-        <a href="{{ url_for('index') }}">Generate another affirmation</a>
+    <div class="artistic-container">
+        <h1 class="form-title">Hi {{ name }}, your affirmations are ready</h1>
+
+        <div class="decorative-result">
+            <pre>{{ affirmations }}</pre>
+        </div>
+
+        <form action="/" method="get" class="form-container">
+            <button type="submit" class="submit-btn">Create Another</button>
+        </form>
+
+        <div class="notification-container">
+            <p>💖 Want daily affirmations sent right to your screen?</p>
+            <button onclick="OneSignal.showSlidedownPrompt();" class="submit-btn">Enable Notifications</button>
+        </div>
     </div>
 </body>
 </html>

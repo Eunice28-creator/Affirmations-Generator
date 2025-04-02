@@ -1,9 +1,11 @@
+import os
 import requests
 import schedule
 import time
 
-ONESIGNAL_APP_ID = "YOUR_ONESIGNAL_APP_ID"
-ONESIGNAL_API_KEY = "YOUR_ONESIGNAL_REST_API_KEY"
+# Load OneSignal credentials from environment variables
+ONESIGNAL_APP_ID = os.getenv("ONESIGNAL_APP_ID")
+ONESIGNAL_API_KEY = os.getenv("ONESIGNAL_API_KEY")
 
 HEADERS = {
     "Content-Type": "application/json; charset=utf-8",
@@ -11,14 +13,14 @@ HEADERS = {
 }
 
 def send_affirmation_push():
-    affirmation = "🌞 You are healing, even when you're resting."
+    affirmation = "💫 You are glowing gently, even in stillness."
 
     payload = {
         "app_id": ONESIGNAL_APP_ID,
         "included_segments": ["Subscribed Users"],
         "headings": {"en": "Daily Affirmation"},
         "contents": {"en": affirmation},
-        "url": "https://your-render-app.onrender.com",  # Optional
+        "url": "https://affirmations-generator.onrender.com"  # Optional
     }
 
     response = requests.post(
@@ -29,7 +31,7 @@ def send_affirmation_push():
 
     print("✅ Push sent:", response.json())
 
-# Schedule to send once a day (e.g. 10:00 AM)
+# Schedule to send once a day (e.g., 10:00 AM)
 schedule.every().day.at("10:00").do(send_affirmation_push)
 
 print("🔔 Daily Affirmation Push Scheduler is running...")
